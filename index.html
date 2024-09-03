@@ -19,11 +19,106 @@
 </head>
 <body>
 
+  <header>
+    <div class="header-wrapper container">
+      <h1>TODO</h1>
+      <button id="theme-change"></button>
+    </div>
+  </header>
 
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+  <main class="container">
+
+    <section class="to-do">
+      <div class="input">
+        <div></div>
+        <input type="text" placeholder="Create a new todo…">
+      </div>
+  
+      <div class="to-do-list">
+        <ul>
+          <li class="completed">
+            <button>
+              <div class="list-item-check">
+                <img src="./images/icon-check.svg" alt="">
+              </div>
+              Complete online JavaScript course
+            </button>
+          </li>
+          <li>
+            <button>
+              <div class="list-item-check">
+              </div>
+              Jog around the park 3x
+            </button>
+            <button class="cross-item">
+              <img src="./images/icon-cross.svg" alt="">
+            </button>
+          </li>
+          <li>
+            <button>
+              <div class="list-item-check">
+              </div>
+              10 minutes meditation
+            </button>
+            <button class="cross-item">
+              <img src="./images/icon-cross.svg" alt="">
+            </button>
+          </li>
+          <li>
+            <button>
+              <div class="list-item-check">
+              </div>
+              Read for 1 hour
+            </button>
+            <button class="cross-item">
+              <img src="./images/icon-cross.svg" alt="">
+            </button>
+          </li>
+          <li>
+            <button>
+              <div class="list-item-check">
+              </div>
+              Pick up groceries
+            </button>
+            <button class="cross-item">
+              <img src="./images/icon-cross.svg" alt="">
+            </button>
+          </li>
+          <li>
+            <button>
+              <div class="list-item-check">
+              </div>
+              Complete Todo App on Frontend Mentor
+            </button>
+            <button class="cross-item">
+              <img src="./images/icon-cross.svg" alt="">
+            </button>
+          </li>
+        </ul>
+
+        <div class="to-do-info">
+          <p class="left-items">5 items left</p>
+          <div class="filters">
+            <button class="filter__all choose-filter">All</button>
+            <button class="filter__active">Active</button>
+            <button class="filter__completed">Completed</button>
+          </div>
+          <button class="delete-completed">Clear Completed</button>
+        </div>
+
+      </div>
+  
+      <button class="drag-and-drop">Drag and drop to reorder list</button>
+
+    </section>
+  </main>
+
+  <footer>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Valeriia</a>.
+    </div>
+  </footer>
 
   <script src="./app.js"></script>
 </body>

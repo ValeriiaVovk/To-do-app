@@ -1,3 +1,368 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.container {
+    max-width: 540px;
+    margin: 0 auto;
+}
+
+:root {
+    --background: #fafafa;
+    --background-li:#fff;
+    --color-li:  #494c6b;
+    --color-detail:  #9495a5;
+    --border-li: #e3e4f1;
+    --filter-hover: #494c6b;
+    --input-color: #393a4b;
+    --input-placeholder: #9495a5;
+    --li-completed: #d1d2da;
+    --box-shadow: rgba(194, 195, 214, 0.5);
+}
+
+[data-theme="dark"] {
+    --background:  #171823;
+    --background-li: #25273d;
+    --color-li: #c8cbe7;
+    --color-detail: #5b5e7e;
+    --border-li: #393a4b;
+    --filter-hover: #e3e4f1;
+    --input-color: #c8cbe7;
+    --input-placeholder: #767992;
+    --li-completed: #4d5067;
+    --box-shadow: rgba(0, 0, 0, 0.5);
+}
+
 body {
     font-family: "Josefin Sans", sans-serif;
+    background: var(--background);
+}
+
+header {
+    background: url(./images/bg-desktop-light.jpg);
+    background-size: cover;
+}
+
+.header-wrapper {
+    padding-top: 70px;
+    padding-bottom: 182px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 40px;
+    letter-spacing: 0.38em;
+    color: #fff;
+}
+
+.header-wrapper button {
+    background: url(./images/icon-moon.svg);
+    border: none;
+    outline: none;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+}
+
+main {
+    position: relative;
+}
+
+.to-do {
+    position: absolute;
+    top: -142px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.input div {
+    position: absolute;
+    top: 17px;
+    left: 24px;
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+    background: transparent;
+    border: 1px solid var(--border-li);
+}
+
+input {
+    border-radius: 5px;
+    width: 540px;
+    box-shadow: 0 35px 50px -15px rgba(194, 195, 214, 0.5);
+    background: var(--background-li);
+    border: none;
+    outline: none;
+    padding: 20px 24px 20px 72px;
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    color: var(--input-color);
+    margin-bottom: 24px;
+}
+
+input::placeholder {
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    color: var(--input-placeholder);
+}
+
+.to-do-list {
+    border-radius: 5px;
+    width: 540px;
+    box-shadow: 0 35px 50px -15px var(--box-shadow);
+    background: var(--background-li);
+    margin-bottom: 49px;
+}
+
+ul li  {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border-li);
+    position: relative;
+    transition: all 1s ease-in-out;
+}
+
+ul li button {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    color: var(--color-li);
+    transition: all 1s ease-in-out;
+    cursor: pointer;
+    font-family: "Josefin Sans", sans-serif;
+    background: inherit;
+    border: none;
+    outline: none;
+}
+
+li.completed  button {
+    text-decoration: line-through;
+    color: var(--li-completed);
+}
+
+.list-item-check {
+    border-radius: 100%;
+    width: 24px;
+    height: 24px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--border-li);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.completed .list-item-check {
+    border: none;
+    background: linear-gradient(135deg, #5df 0%, #c058f3 100%);
+}
+
+.cross-item {
+    position: absolute;
+    right: 24px;
+    top: 23px;
+    display: none;
+}
+
+ul li:hover .cross-item {
+    display: block;
+}
+
+.to-do-info {
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-items {
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    color: var(--color-detail);
+}
+
+.filters {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.filters button {
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    color: var(--color-detail);
+    cursor: pointer;
+    background: inherit;
+    border: none;
+    outline: none;
+    transition: all 1s ease-in-out;
+}
+
+.filters button:hover {
+    color: var(--filter-hover);
+}
+
+.filters button.choose-filter {
+    color: #3a7cfd;
+}
+
+.delete-completed {
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    text-align: right;
+    color: var(--color-detail);
+    cursor: pointer;
+    background: inherit;
+    border: none;
+    outline: none;
+    transition: all 1s ease-in-out;
+}
+
+.delete-completed:hover {
+    color: var(--filter-hover);
+}
+
+.drag-and-drop {
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    text-align: center;
+    color: var(--color-detail);
+    cursor: pointer;
+    background: inherit;
+    border: none;
+    outline: none;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+}
+
+@media (max-width: 560px) {
+    .container {
+        width: 327px;
+    }
+
+    header {
+        background: url(./images/bg-mobile-light.jpg);
+        background-size: cover;
+    }
+
+    .header-wrapper {
+        padding-top: 48px;
+        padding-bottom: 132px;
+    }
+    
+    h1 {
+        font-size: 34px;
+    }
+    
+    .to-do {
+        top: -92px;
+    }
+    
+    .input {
+        gap: 12px;
+    }
+    
+    .input div {
+        top: 14px;
+        left: 20px;
+        width: 20px;
+        height: 20px;
+    }
+    
+    input {
+        width: 327px;
+        padding: 18px 20px 18px 52px;
+        font-size: 12px;
+        margin-bottom: 16px;
+    }
+    
+    input::placeholder {
+        font-size: 12px;
+    }
+    
+    .to-do-list {
+        width: 327px;
+        margin-bottom: 104px;
+    }
+    
+    ul li  {
+        padding: 16px 20px;
+    }
+    
+    ul li button {
+        gap: 12px;
+        font-size: 12px;
+    }
+    
+    .list-item-check {
+        width: 20px;
+        height: 20px;
+    }
+
+    .cross-item {
+        right: 20px;
+        top: 20px;
+    }
+    
+    .to-do-info {
+        padding: 16px 20px;
+        position: relative;
+    }
+    
+    .left-items {
+        font-size: 12px;
+    }
+    
+    .filters {
+        box-shadow: 0 35px 50px -15px rgba(194, 195, 214, 0.5);
+        background: #fff;
+        border-radius: 5px;
+        width: 327px;
+        padding: 15px 80px;
+        position: absolute;
+        bottom: -60px;
+        left: 0;
+    }
+    
+    .delete-completed {
+        font-size: 12px;
+    }
 }
